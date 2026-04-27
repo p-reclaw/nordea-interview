@@ -3,7 +3,7 @@ The Main.class asks for input in form of any text for <b>until we provide two ne
 Code supports reading from Std::in and Resource files.
 
 # How to run UI
-Start `NordeaAssignmentApplication` and in Your browser use `http://localhost:8080`.
+Start `NordeaAssignmentApplication` and in Your browser use `http://localhost:8080/convert`.
 There are 3 columns on the form: `input`, `expected`, `actual`. This form is designed to help validating solution.
 
 # How to use tests
