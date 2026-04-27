@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: #1f2023;
+    color: #cfd3d7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    border-top: 6px solid #2f8f45;
+}
+
+.page {
+    min-height: calc(100vh - 6px);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conversion-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.toolbar-right {
+    position: absolute;
+    right: 22%;
+}
+
+button {
+    border: 0;
+    border-radius: 3px;
+    background: #4a4d50;
+    color: #d7d9dc;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5a5d60;
+}
+
+.btn-convert {
+    background: #4f9b65;
+    color: #eaf6ed;
+    font-size: 18px;
+    padding: 14px 28px;
+}
+
+.btn-convert:hover {
+    background: #5aae70;
+}
+
+.compare-area {
+    display: grid;
+    grid-template-columns: 1fr 4px 1fr 4px 1fr;
+    padding: 0 4px;
+
+    height: 50vh;
+    max-height: 50vh;
+    min-height: 0;
+}
+
+.divider {
+    background: #17181a;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    max-height: 50vh;
+    min-height: 0;
+    resize: none;
+    border: 0;
+    outline: none;
+    background: #303136;
+    color: #d6d9dd;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.45;
+    padding: 8px;
+
+    white-space: pre;
+    overflow: auto;
+}
+
+textarea::placeholder {
+    color: #b9bcc2;
+    opacity: 0.8;
+}
+
+textarea[readonly] {
+    background: #292a2f;
+}
+
+.comparison-message {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #cfd3d7;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.comparison-message p {
+    margin: 12px 8px;
+}
+
+.comparison-success {
+    color: #69c77b;
+}
+
+.comparison-error {
+    color: #e36b6b;
+}
+
+.footer {
+    height: 46px;
+    margin-top: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #3d8fd6;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.keyboard-icon {
+    position: absolute;
+    left: 10px;
+    bottom: 14px;
+    font-size: 13px;
+    color: #d8d8d8;
+}
+
+.socials {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    gap: 4px;
+}
+
+.socials a {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    background: #4ca3e3;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .toolbar {
+        height: auto;
+        padding: 16px 8px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .conversion-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .toolbar-right {
+        position: static;
+    }
+
+    .compare-area {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 4px 1fr 4px 1fr;
+        height: auto;
+        max-height: none;
+    }
+
+    textarea {
+        height: 30vh;
+        max-height: 30vh;
+    }
+
+    .footer {
+        height: auto;
+        padding: 14px 8px;
+    }
+
+    .socials {
+        display: none;
+    }
+}

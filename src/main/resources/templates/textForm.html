@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Converter</title>
+    <link rel="stylesheet" th:href="@{/css/textForm.css}">
+</head>
+
+<body>
+<div class="page">
+
+    <form th:action="@{/convert}"
+          th:object="${textFormContent}"
+          method="post"
+          class="main-form">
+
+        <header class="toolbar">
+            <div class="conversion-buttons">
+                <button type="submit"
+                        name="format"
+                        value="csv"
+                        class="btn-convert">
+                    Convert CSV
+                </button>
+
+                <button type="submit"
+                        name="format"
+                        value="xml"
+                        class="btn-convert">
+                    Convert XML
+                </button>
+            </div>
+
+            <div class="toolbar-right">
+                <button type="button" onclick="clearTexts()">Clear all</button>
+            </div>
+        </header>
+
+        <main class="compare-area">
+            <textarea
+                    id="inputText"
+                    th:field="*{inputText}"
+                    wrap="off"
+                    placeholder="Paste input text here."></textarea>
+
+            <div class="divider"></div>
+
+            <textarea
+                    id="expectedResult"
+                    th:field="*{expectedResult}"
+                    wrap="off"
+                    placeholder="Paste expected result here."></textarea>
+
+            <div class="divider"></div>
+
+            <textarea
+                    id="actualResult"
+                    th:field="*{actualResult}"
+                    wrap="off"
+                    readonly
+                    placeholder="Actual conversion result will appear here."></textarea>
+        </main>
+
+        <div class="comparison-message">
+            <p th:if="${comparisonDone == null || comparisonDone == false}">
+                Here You will see if expected output compared to actual output are the same
+            </p>
+
+            <p th:if="${comparisonDone == true && resultsMatch == true}"
+               class="comparison-success">
+                Actual output is equal to expected!
+            </p>
+
+            <p th:if="${comparisonDone == true && resultsMatch == false}"
+               class="comparison-error">
+                Results are different
+            </p>
+        </div>
+
+    </form>
+
+    <footer class="footer">
+        <div class="keyboard-icon">⌨</div>
+
+        <nav class="footer-links">
+            <a href="#" th:href="@{/about}">About</a>
+            <a href="#" th:href="@{/feedback}">Feedback</a>
+            <a href="#" th:href="@{/privacy}">Privacy</a>
+        </nav>
+
+        <div class="socials">
+            <a href="#">+</a>
+            <a href="#">f</a>
+            <a href="#">X</a>
+            <a href="#">✉</a>
+            <a href="#">in</a>
+            <a href="#">M</a>
+            <a href="#">✉</a>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    function clearTexts() {
+        document.getElementById("inputText").value = "";
+        document.getElementById("expectedResult").value = "";
+        document.getElementById("actualResult").value = "";
+    }
+</script>
+
+</body>
+</html>
