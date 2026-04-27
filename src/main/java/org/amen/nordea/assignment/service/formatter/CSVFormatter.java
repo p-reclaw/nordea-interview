@@ -46,11 +46,6 @@ public class CSVFormatter implements IFormatter {
             writer.append(escapeCsv(row[i]));
         }
 
-// This won't work due to the fact CSV format requires char so we need our own impl. of row write
-//        try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
-//            csvPrinter.printRecord((Object[]) row);
-//        }
-
         writer.append("\r\n");
         return writer.toString();
     }
